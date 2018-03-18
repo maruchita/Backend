@@ -41,12 +41,24 @@ public class UserController {
 		
 		return new RestResponse(HttpStatus.OK.value(), "Operacion existosa");
 	}
+	
 	@RequestMapping(value = "/getUsers", method = RequestMethod.GET)
 	public List<User> getUsers()
 	{
 		return this.userService.findAll();
 	}
-	
+	@RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
+	public void deleteUser(@RequestBody String userJson) throws Exception {
+		
+		mapper = new ObjectMapper();
+		
+		User user = this.mapper.readValue(userJson, User.class);
+		
+		if(user.getId() == null)
+			throw new Exception("El id esta nulo");
+		
+		this.userService.deleteUser(user.getId());
+	}
 	private boolean validate(User user) {
 		
 		boolean isValid = true;
