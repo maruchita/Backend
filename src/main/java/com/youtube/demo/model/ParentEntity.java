@@ -20,13 +20,14 @@ public class ParentEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", unique = true, nullable = false)
-	private long id;
+	private Integer id;
 
-	private long getId() {
+	
+	private Integer getId() {
 		return id;
 	}
 
-	private void setIdLong(long id) {
+	private void setId(Integer id) {
 		this.id = id;
 	}
 	
