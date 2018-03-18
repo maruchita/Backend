@@ -23,11 +23,11 @@ public class ParentEntity implements Serializable {
 	private Integer id;
 
 	
-	private Integer getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	private void setId(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
